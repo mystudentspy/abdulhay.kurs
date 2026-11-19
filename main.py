@@ -1,9 +1,12 @@
 import asyncio, logging
 from aiogram import Bot, Dispatcher
 from config.settings import token
+from handlers.keraksiz import rt as keraksiz
+from handlers.referal import rt as referal
+from handlers.aniqla import rt as aniqla
 from handlers.date import rt as date
 from handlers.Users import rt as User
-from handlers.start import rt as start
+# from handlers.start import rt as start
 # from handlers.text import rt as text
 from handlers.kompiyuterlar import rt as laptot
 from handlers.mashinalar import rt as car
@@ -19,10 +22,13 @@ dp = Dispatcher()
 async def main() :
     bot = Bot(token)
     # dp.include_router(text)
+    dp.include_router(keraksiz)
+    dp.include_router(referal)
+    dp.include_router(aniqla)
     dp.include_router(date)
     dp.include_router(User)
     # dp.include_router(forward)
-    dp.include_router(start)
+    # dp.include_router(start)
     dp.include_router(info)
     dp.include_router(help)
     dp.include_router(laptot)
